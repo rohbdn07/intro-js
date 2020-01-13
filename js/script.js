@@ -8,7 +8,5 @@ if(a<b){
 }else{
     console.log("a is greater than b");
 }
-if(a===2){
-    console.log("a is greater than b");
-}
+ 
 
