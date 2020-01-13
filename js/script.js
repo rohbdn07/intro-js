@@ -1,12 +1,8 @@
-console.log("this is me");
+var text = "";
+var i;
 
-var a=1;
-var b=2;
-
-if(a<b){
-    console.log("a is lesser than b");
-}else{
-    console.log("a is greater than b");
+for (i = 0; i < 8; i++) {
+    text += "the numner is " + i + "<br>";
+    //console.log(text);
 }
- 
-
+console.log(text);
