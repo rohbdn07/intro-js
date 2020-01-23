@@ -8,10 +8,18 @@ function validateForm(e) {
   console.log("email: " + validateEmail());
   console.log("password: " + validatePassword());
 
-  if (validateUsername() && validateEmail() && validatePassword()) {
+  if (
+    validateUsername() &&
+    validateEmail() &&
+    validatePassword() &&
+    validateFirstName() &&
+    validateLastName()
+  ) {
     var _newUser = getUserName();
     var _email = getEmail();
     var _password = getPassword();
+    var _userFirstName = getFirstName();
+    var _userLastName = getLastName();
 
     // add code to update registeredUsers array with new user and call render function
     // TODO
@@ -19,8 +27,13 @@ function validateForm(e) {
     registeredUsers.push(_newUser);
     registeredUsers.push(_email);
     registeredUsers.push(_password);
+    registeredUsers.push(_userFirstName);
+    registeredUsers.push(_userLastName);
 
     document.registration.reset(); // reset form input fields
+  }
+  if (renderRegisteredUsers > 3) {
+    renderRegisteredUsers.shift();
   }
   renderRegisteredUsers();
 }
@@ -43,6 +56,17 @@ function validateUsername() {
   return !checkSpace(_userName);
 }
 
+function validateFirstName() {
+  var _userFirstName = getFirstName();
+
+  return !checkSpace(_userFirstName);
+}
+
+function validateLastName() {
+  var _userLastName = getLastName();
+
+  return !checkSpace(_userLastName);
+}
 /**
  * this function supposely validates submitted email
  * @returns [Boolean] true when valid, false otherwise
@@ -116,6 +140,21 @@ function getUserName() {
   }
 }
 
+function getFirstName() {
+  if (typeof document.registration.fName.value === "undefined") {
+    return "";
+  } else {
+    return document.registration.fName.value;
+  }
+}
+
+function getLastName() {
+  if (typeof document.registration.lName.value === "undefined") {
+    return "";
+  } else {
+    return document.registration.lName.value;
+  }
+}
 function getEmail() {
   // TODO
   if (typeof document.registration.email.value === "undefined") {
