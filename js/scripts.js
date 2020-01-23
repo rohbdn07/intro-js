@@ -84,11 +84,11 @@ function validatePassword() {
   var _password = getPassword();
   var _confirmPassword = getConfirmPassword();
 
-  if (_password !== _confirmPassword) {
-    return false;
+  if (_password === _confirmPassword && _password.length < 8) {
+    return true;
   }
 
-  return true;
+  return false;
 }
 
 /**
