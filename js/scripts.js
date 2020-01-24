@@ -39,7 +39,7 @@ function getUserDataObj() {
 
 function renderRegisteredUsers() {
   document.getElementById("registered-users").innerHTML = "";
-
+  debugger;
   registeredUsers.forEach(function(registeredUser) {
     var _newUser = document.createElement("li");
     _newUser.innerHTML = JSON.stringify(registeredUser);
