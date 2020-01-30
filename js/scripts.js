@@ -38,19 +38,28 @@ function getUserDataObj() {
 }
 
 function renderRegisteredUsers() {
-  document.getElementById("registered-users").innerHTML = "";
-  debugger;
-  registeredUsers.forEach(function(registeredUser) {
-    var _newUser = document.createElement("li");
-    _newUser.innerHTML = JSON.stringify(registeredUser);
-    document.getElementById("registered-users").appendChild(_newUser);
-  });
+  //   document.getElementById("registered-users").innerHTML = "";
+  // $('#registered-users').empty();
+  // //   debugger
+
+  // $.each (renderRegisteredUsers, function (registeredUser){
+  $("<li>")
+    .text(JSON.stringify(registeredUser))
+    .appendTo("#registered-users");
 }
+
+//   registeredUsers.forEach(function(registeredUser) {
+//     var _newUser = document.createElement("li");
+//     _newUser.innerHTML = JSON.stringify(registeredUser);
+//     document.getElementById("registered-users").appendChild(_newUser);
+//   });
+// }
 
 /**
  * this function supposely validates submitted username
  * @returns [Boolean] true when valid, false otherwise
  */
+
 function validateUsername() {
   var _userName = getUserName();
 
@@ -157,10 +166,15 @@ function checkSpace(sample) {
  * @returns [Boolean] true when valid, false otherwise
  */
 function getUserName() {
-  if (typeof document.registration.username.value === "undefined") {
+  // if (typeof document.registration.username.value === "undefined") {
+  //   return "";
+  // } else {
+  //   return document.registration.username.value;
+  // }
+  if (typeof $('[name="username"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.username.value;
+    return $('[name="username"]').val();
   }
 }
 
