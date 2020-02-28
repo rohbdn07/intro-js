@@ -50,6 +50,43 @@
       document.getElementById("popup2").style.visibility = "visible";
     }
   });
+  function show() {
+    appear.style.visibility = "visible";
+  }
+  // -----------------------Read this--------------------
+  var appear = document
+    .getElementById("popup3")
+    .getElementsByClassName("popup")[0];
+
+  $(appear).scroll(function() {
+    var go = document
+      .getElementById("popup3")
+      .getElementsByClassName("close")[0];
+    var height = document
+      .getElementById("popup3")
+      .getElementsByClassName("popup")[0].scrollTop;
+    if (height > 3000) {
+      // $(go).css(("visiblity" = "visible"));
+      // $("#flex").fadeIn();
+      go.style.visibility = "visible";
+    } else {
+      go.style.visibility = "hidden";
+    }
+    $(go).click(function(event) {
+      event.preventDefault();
+      appear.style.visibility = "hidden";
+      go.style.visibility = "hidden";
+    });
+  });
+
+  // $(document).ready(function () {
+  //   $(go).click(function (event) {
+  //     event.preventDefault();
+  //     $("btn").hide();
+  //     return false;
+  //   });
+
+  // -----------------------Read this end here--------------------
 
   $("nav .dropdown").hover(
     function() {
